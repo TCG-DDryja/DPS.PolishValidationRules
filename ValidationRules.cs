@@ -19,7 +19,6 @@ namespace DPS.PolishValidationRules
             AddMarketMethod("CheckPolishBAN", new NRB());
             AddMarketMethod("CheckREGON", new REGON());
             AddMarketMethod("CheckPolishPassport", new PassportNumber());
-            //AddMarketMethod("ComparePESELAndBirthDate", new PESEL_Date()); //To do - I need to know how to handle more than one field with different type and send MsgStatus to specific field
         }
     }
 }

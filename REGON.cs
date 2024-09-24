@@ -30,8 +30,8 @@ namespace DPS.PolishValidationRules
             //REGON number verification
             //REGON is a unique value identifying an entrepreneur in Poland
             //REGON can be a string of 9 or 14 digits in length (14 digits length REGON includes 9 digits REGON)
-            //For a 9-digit REGON number, the 9 digit is a check digit calculated by summing the products of the weights 8 9 2 3 4 5 6 7 and modulo 11 (modulo result = check digit)
-            //For a 14-digit REGON number, the 14th digit is a check digit calculated by adding up the products of the weights 2 4 8 5 0 9 7 3 6 1 2 4 8 and modulo 11 (modulo result = check digit)
+            //For a 9-digit REGON number, the 9 digit is a check digit calculated by summing the products of the weights 8, 9, 2, 3, 4, 5, 6, 7 and modulo 11 (modulo result = check digit)
+            //For a 14-digit REGON number, the 14th digit is a check digit calculated by adding up the products of the weights 2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8 and modulo 11 (modulo result = check digit)
         }
 
         public override void Execute(IDocRepresentation pIDocRepresentation, IDictionary<string, IDocField> pDictFields, IDefMarketValidation pIDefMarketValidation)

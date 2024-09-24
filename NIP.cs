@@ -49,7 +49,7 @@ namespace DPS.PolishValidationRules
                 MsgLogDistrib.Debug("I am initiating verification of the NIP");
 
                 string NIPValue = (NIP.Value?.ToString() ?? "").ToUpper();
-                //Allowed patterns
+                //Allowed patterns - 10 digits, optionally grouped with "-" and optionally with "PL" prefix
                 string pattern = @"^\d{10}$|^PL\d{10}$|^\d{3}-\d{3}-\d{2}-\d{2}$|^PL\d{3}-\d{3}-\d{2}-\d{2}$|^\d{3} \d{3} \d{2} \d{2}$|^PL\d{3} \d{3} \d{2} \d{2}$";
                 bool IsValidFormattedNIP = false;
                 MsgLogDistrib.Debug("Tested NIP is: " + NIPValue);

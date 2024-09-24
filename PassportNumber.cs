@@ -51,12 +51,12 @@ namespace DPS.PolishValidationRules
 
                 if (PValue.Length != 9 || String.IsNullOrEmpty(PValue))
                 {
-                    MsgLogDistrib.Debug("Passport number has incorrect length. It has to be 9 characters.");
+                    MsgLogDistrib.Debug("Passport number has incorrect length. It has to be 9 characters");
                     lMessageStatusField.MessageId = Failed;
                 }
                 else if (!new Regex("[A-Z]{2}\\d{7}").IsMatch(PValue))
                 {
-                    MsgLogDistrib.Debug("Passport number has incorrect format. It has to be 2 letter and 7 digits.");
+                    MsgLogDistrib.Debug("Passport number has incorrect format. It has to be 2 letter and 7 digits");
                     lMessageStatusField.MessageId = Failed;
                 }
                 else

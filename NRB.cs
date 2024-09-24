@@ -21,7 +21,7 @@ namespace DPS.PolishValidationRules
         public NRB() : base()
         {
             mMethodDescription = "Verification of the correctness of Polish Bank Account Number (NRB)";
-            MarketParams.GetOrCreate(fieldID).Description = "";
+            MarketParams.GetOrCreate(fieldID).Description = "NRB";
             DescribeRevisions.Add("1.0", "Start Revision");
 
             // Add return message values description
@@ -45,6 +45,7 @@ namespace DPS.PolishValidationRules
                 MsgLogDistrib.Debug("I am initiating verification of the NRB number");
 
                 string NRBValue = (NRB.Value?.ToString() ?? "").ToUpper();
+                //Allowed patterns with our without PL prefix and as 26 digit number or as grouped value (mostly on documents)
                 string pattern = @"^(PL\d{2} \d{4} \d{4} \d{4} \d{4} \d{4} \d{4})$|^(\d{2} \d{4} \d{4} \d{4} \d{4} \d{4} \d{4})$|^PL\d{26}$|^\d{26}$";
                 bool IsValidFormattedNRB = false;
 
@@ -77,7 +78,7 @@ namespace DPS.PolishValidationRules
                     MsgLogDistrib.Debug("I am changing the original NRB for the purpose of calculating correctness (moving the first 4 characters and replacing PL with 2521): " + checkNRB);
 
                     BigInteger modulo = BigInteger.Parse(checkNRB) % 97;
-
+                    
                     if (modulo == 1)
                     {
                         MsgLogDistrib.Debug("NRB is correct");
